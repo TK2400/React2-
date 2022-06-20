@@ -1,15 +1,19 @@
 
+import { useState } from 'react';
 import Header2 from './components/Header2';
 
 
 function App() {
+  const [parentCount, setParentCount] = useState(0)
+  function addOneToCount() {
+    setParentCount (parentCount +1)
+  }
   return (
     <div className="App">
       <header className="App-header">
-        <Header2
-          title={"My second react app"}
-          subTitle={"I really want to become a prof"}
-        /> 
+        <h1> Total : {parentCount}</h1>
+        <Header2 title={'First counter'} onButtonClick={addOneToCount}/>
+        <Header2 title={'Second counter'} onButtonClick={addOneToCount}/>
       </header>
     </div>
   );

@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export default function Header2(props) {
-    const { title } = props
+    const { title, onButtonClick } = props
     const [count, setCount] = useState(0)
     // sitas parasymas yra tas pats kas eilute auksciau
     // const arr = useState (0)
@@ -12,11 +12,13 @@ export default function Header2(props) {
     // console.log("Header2 rerendered", count)
 
     return (
-        <div>
+        <div style={{ backgroundColor: "grey", color: "white", width: "300px"}} >
+            <h3> {title}</h3>
             <button
                 onClick={() => {
                     setCount(count - 1)
                     setButtonPressed(buttonPressed + 1)
+                    onButtonClick()
                 }}
             >
                 -
@@ -26,6 +28,7 @@ export default function Header2(props) {
                 onClick={() => {
                     setCount(count + 1)
                     setButtonPressed(buttonPressed + 1)
+                    onButtonClick()
                 }}
             >
                 +
@@ -34,6 +37,6 @@ export default function Header2(props) {
             <h3> {title} </h3>
             <h4> {count} </h4>
             <b> Total button pressed : {buttonPressed}</b>
-        </div>
-    )
+        </ div>
+            )
 }
