@@ -12,7 +12,7 @@ export default function Header2(props) {
     // console.log("Header2 rerendered", count)
 
     return (
-        <div style={{ backgroundColor: "grey", color: "white", width: "300px"}} >
+        <div style={{ backgroundColor: "grey", padding: "30px", marginBottom: "50px", width: "300px"}} >
             <h3> {title}</h3>
             <button
                 onClick={() => {
