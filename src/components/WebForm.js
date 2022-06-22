@@ -55,39 +55,45 @@ import { useState } from 'react';
   form.onsubmit = handleFormSubmit;
   firstNameInput.oninput = handleFirstNameChange;
   lastNameInput.oninput = handleLastNameChange;
-*/  
+*/
 
-  export default function WebForm() {
+export default function WebForm() {
     const [name, setName] = useState('Jane')
     const [lname, setLname] = useState('Jacob')
     const [isEdit, setIsEdit] = useState(false)
 
-    
-    return (
-      <form>
-        <label>
-          First name:
-          {!isEdit? <b>{name}</b>
-          :<input value = {name} onChange ={(e)=>setName(e.target.value)}/>
-          }
-          <br></br>
-        </label>
-        <label>
-          Last name:
-          {!isEdit ?<b>{lname}</b>
-          :<input value ={lname} onChange ={(e)=>setLname(e.target.value)}/>
-          }
+    function handleNameChange(e) {
+        e.target.name === "name" ?
+            setName(e.target.value) :
+            setLname(e.target.value)
 
-        </label>
-        <br></br>
-        <button type="submit" onClick ={(e)=>{e.preventDefault(); setIsEdit(!isEdit)}}>
-          {isEdit ? "Save profile" : "Edit Profile"}
-        </button>
-        <p><i>Hello, {name} {lname} </i></p>
-      </form>
+    }
+
+    return (
+        <form>
+            <label>
+                First name:
+                {!isEdit ? <b>{name}</b>
+                    : <input name='name' value={name} onChange={handleNameChange} />
+                }
+                <br></br>
+            </label>
+            <label>
+                Last name:
+                {!isEdit ? <b>{lname}</b>
+                    : <input name='lname' value={lname} onChange={handleNameChange} />
+                }
+
+            </label>
+            <br></br>
+            <button type="submit" onClick={(e) => { e.preventDefault(); setIsEdit(!isEdit) }}>
+                {isEdit ? "Save profile" : "Edit Profile"}
+            </button>
+            <p><i>Hello, {name} {lname} </i></p>
+        </form>
     );
-  }
-  
+}
+
 
 /*  export default function EditProfile() {
     const [name, setName] = useState('Jan');
