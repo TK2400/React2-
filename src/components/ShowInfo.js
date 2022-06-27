@@ -1,7 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
 
 export default function ShowInfo(props) {
-       const [buttonClicked, setButtonClicked] = useState(props.state)
+    const [users, setUsers] = useState(() => {
+        return []
+    })
+    const [buttonClicked, setButtonClicked] = useState(props.state)
 
     function showMore() {
         if (!buttonClicked) {
@@ -10,29 +14,31 @@ export default function ShowInfo(props) {
         else { setButtonClicked(false) }
     }
 
+    useEffect(() => {
+        fetch("https://randomuser.me/api/?results=10%22")
+            .then((resp) => resp.json())
+            .then((result) => setUsers(result.results))
+    }, [])
+
+
+
     return (
-        <div style={{
-            display: "flex",
-            alignIitems: "center",
-        }}>
-            <h3> {props.fullName}</h3>
+        <header>
+            <div>
+                {users.map((user) => (
+                    <div key={user.name.first}> {user.name.first} {user.name.last}</div>))}
+            </div>
             <button onClick={() => showMore()}>
                 {buttonClicked ? "show less" : "show more"}
             </button>
             {buttonClicked &&
-                <div>
-                    <p> {props.text}</p>
-                </div>
+                users.map((user) => (
+                    <div key={user.location.city}> {user.location.city}, {user.location.country}</div>))
             }
-        </div>
+
+
+        </header>
     )
 }
 
 
-// function Avatar(props) {
-//     const [user, setUser] = React.useState({...props.user});
-  
-//     React.useEffect(() => {
-//         setUser(props.user);
-//     }, [props.user])
-  
