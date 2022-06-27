@@ -12,12 +12,20 @@ export default function App2() {
             width: "300px"
         }}
         >
-            <ShowInfo style={{
-                display: "flex",
-                justifyContent: "centre"
-            }} 
-            fullName="Ignas Brazdeikis" 
-            text="Šiemet pagaliau žais Lietuvos rinktinėje!" />
+            <ShowInfo fullName="Ignas Brazdeikis"
+                text="Šiemet pagaliau žais Lietuvos rinktinėje!"
+                state={false}
+            />
+            <hr></hr>
+            <ShowInfo fullName="Rimas Kurtinaitis"
+                text="senas krepsinio vilkas, dabar daugiau treneris"
+                state={true}
+            />
+            <hr></hr>
+            <ShowInfo fullName="Arunas Mazeika"
+                text="Neptuno didvyris!"
+                state={true}
+            />
         </div>
     );
 }

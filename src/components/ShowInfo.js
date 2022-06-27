@@ -1,8 +1,7 @@
 import { useState } from "react";
 
 export default function ShowInfo(props) {
-
-    const [buttonClicked, setButtonClicked] = useState(false)
+       const [buttonClicked, setButtonClicked] = useState(props.state)
 
     function showMore() {
         if (!buttonClicked) {
@@ -12,7 +11,10 @@ export default function ShowInfo(props) {
     }
 
     return (
-        <div>
+        <div style={{
+            display: "flex",
+            alignIitems: "center",
+        }}>
             <h3> {props.fullName}</h3>
             <button onClick={() => showMore()}>
                 {buttonClicked ? "show less" : "show more"}
@@ -25,3 +27,12 @@ export default function ShowInfo(props) {
         </div>
     )
 }
+
+
+// function Avatar(props) {
+//     const [user, setUser] = React.useState({...props.user});
+  
+//     React.useEffect(() => {
+//         setUser(props.user);
+//     }, [props.user])
+  
