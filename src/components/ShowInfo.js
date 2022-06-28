@@ -15,6 +15,7 @@ export default function ShowInfo(props) {
     }
 
     useEffect(() => {
+    //    fetch("http://127.0.0.1:9000/users")
         fetch("https://randomuser.me/api/?results=10%22")
             .then((resp) => resp.json())
             .then((result) => setUsers(result.results))
