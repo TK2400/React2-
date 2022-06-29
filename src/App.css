@@ -6,6 +6,15 @@ body {
 
 .app {
   max-width: 1200px;
+  background-color: lightblue;
+  padding: 30px; 
+  margin-bottom: 50px; 
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  height: auto;
+  border: black;
+  border-width:5px
 }
 
 a {
