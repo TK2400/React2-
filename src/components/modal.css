@@ -7,8 +7,8 @@
     left: auto;
     right:auto;
     top: 50px;
-    width: 40%; 
-    height: 40%; 
+    width: 45%; 
+    height: 45%; 
     overflow: auto; 
     background-color: rgb(170, 197, 170, 0.9);
     color: black;
@@ -17,4 +17,4 @@
   
 .modal img {     
     border-radius: 10px;
-          }
+    }

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import './components/profile.css'
 import ModalProfile from './components/ModalProfile';
+import "./App.css"
 
 
 export default function App3() {
@@ -19,18 +20,7 @@ export default function App3() {
     }, [])
 
     return (
-        <div className="App" style={
-            {
-                backgroundColor: 'lightblue',
-                padding: "30px",
-                marginBottom: "50px",
-                width: "300px",
-                marginLeft: "auto",
-                marginRight: "auto",
-                height: "auto",
-                border: "black",
-                borderWidth: "5px"
-            }}>
+        <div className="app">
             <section>
                 {users.map((user) => (
                     <div
