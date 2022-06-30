@@ -1,7 +1,7 @@
 import { useState } from 'react';
+import FormToDo from './components/FormToDo'
 
 export default function App() {
-  const [newTaskValue, setNewTaskValue] = useState('');
   const [todos, setTodos] = useState([]);
 
   function handleDelete(taskIndex) {
@@ -10,18 +10,11 @@ export default function App() {
     setTodos(filteredTodos);
   }
 
-  function handleNewTodo(e) {
-    e.preventDefault();
-
+  function handleNewTodo(newTaskValue) {
     setTodos([
       ...todos,
       newTaskValue
     ]);
-    setNewTaskValue('');
-  }
-
-  function handleInput(e) {
-    setNewTaskValue(e.target.value);
   }
 
   return (
@@ -39,15 +32,8 @@ export default function App() {
         })}
       </ul>
 
-      {todos.length > 4 && <h2>Jau daug taskų! Ar suspėsi viską padaryt?</h2>} 
-
-      <form onSubmit={handleNewTodo}>
-        <input 
-          value={newTaskValue} 
-          onChange={handleInput} 
-          placeholder='Enter item' />
-        <button>Submit</button>
-      </form>
+      {todos.length > 4 && <h2>Jau daug taskų! Ar suspėsi viską padaryt?</h2>}
+      <FormToDo addToDo={handleNewTodo}></FormToDo>
     </div>
   );
 }
