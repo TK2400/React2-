@@ -11,7 +11,6 @@ export default function App3() {
 
     const [showModal, setShowModal] = useState(false)
     const [userToShow, setUserToShow] = useState({})
-    function modalShow() { (!showModal) ? setShowModal(true) : setShowModal(false) }
 
     useEffect(() => {
         fetch("https://randomuser.me/api/?results=10")
@@ -19,13 +18,14 @@ export default function App3() {
             .then((result) => setUsers(result.results))
     }, [])
 
+
     return (
         <div className="app">
             <section>
                 {users.map((user) => (
                     <div
                         onClick={() => {
-                            modalShow(true);
+                            setShowModal(true);
                             setUserToShow(user);
                         }}
                         key={user.name.first}>
@@ -34,14 +34,19 @@ export default function App3() {
                     </div>
 
                 ))}
-                {showModal && <div onClick={() => modalShow(false)}>
+                {showModal && <div /*onClick={() => modalShow(false)}*/>
                     <ModalProfile
+                        click={() => setShowModal(false)}
                         name={`${userToShow.name.title}. ${userToShow.name.first} ${userToShow.name.last}`}
                         location={`${userToShow.location.city} ${userToShow.location.country}`}
+                        street={`${userToShow.location.street.name}, ${userToShow.location.street.number}`}
                         image={userToShow.picture.large}
+
                     />
+
                 </div>}
             </section>
         </div>
     );
 }
+
