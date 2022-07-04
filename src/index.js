@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App3.js';
+import App from './App5';
 // import Puslapis from './pavyzdziai/Puslapis'
 
 
